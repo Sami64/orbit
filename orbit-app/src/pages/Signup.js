@@ -12,8 +12,6 @@ import FormSuccess from "./../components/FormSuccess";
 import logo from "./../images/logo.png";
 import { publicFetch } from "../util/fetch";
 import { Redirect } from "react-router";
-import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
 
 const SignupSchema = Yup.object().shape({
   firstName: Yup.string().required("First name is required"),
@@ -23,7 +21,6 @@ const SignupSchema = Yup.object().shape({
 });
 
 const Signup = () => {
-  const authContext = useContext(AuthContext);
   const [signupSuccess, setSignupSuccess] = useState();
   const [signupError, setSignupError] = useState();
   const [loginLoading, setLoginLoading] = useState(false);
