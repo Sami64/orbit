@@ -38,6 +38,10 @@ const AuthProvider = ({ children }) => {
     history.push("/");
   };
 
+  const isAdmin = () => {
+    return authState.userInfo.role === "admin";
+  };
+
   return (
     <Provider
       value={{
@@ -45,6 +49,7 @@ const AuthProvider = ({ children }) => {
         setAuthState: (authInfo) => setAuthInfo(authInfo),
         isAuthenticated,
         logout,
+        isAdmin,
       }}
     >
       {children}
